@@ -59,6 +59,7 @@ Replace 'wordpress_db', 'wordpress_user', and 'password' with your actual databa
 Step 7: Complete WordPress Installation
 Access your server's public IP address in a web browser.
 Follow the WordPress installation wizard to set up your site, including creating an admin account and configuring basic settings.
+
 =====================================================================================================================================
 =====================================================================================================================================
 
@@ -96,6 +97,7 @@ cp /var/www/html/wordpress/wp-config-sample.php /var/www/html/wordpress/wp-confi
 sudo nano /var/www/html/wordpress/wp-config.php
 
 Complete WordPress Installation
+Complete setup is now done, browse with your public IP. And Wordpress will automatically connect to the MySQL server on another EC2.
 Navigate to your WordPress site in a web browser using the public IP address of the WordPress EC2 instance (e.g., http://wordpress-instance-public-ip).
 
 
