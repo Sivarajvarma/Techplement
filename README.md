@@ -1,4 +1,4 @@
-deploy a monolithic architecture with WordPress and MySQL on Ubuntu.
+**deploy a monolithic architecture with WordPress and MySQL on Ubuntu.**
 
 Step 1: Install MySQL Server
 Update the package index:
@@ -59,3 +59,48 @@ Replace 'wordpress_db', 'wordpress_user', and 'password' with your actual databa
 Step 7: Complete WordPress Installation
 Access your server's public IP address in a web browser.
 Follow the WordPress installation wizard to set up your site, including creating an admin account and configuring basic settings.
+=====================================================================================================================================
+=====================================================================================================================================
+
+**deploy microservice architecture 1 ec2 ubuntu for wordpress and 1 ec2 user for mysql ubuntu**
+
+Step 1: Launch EC2 Instances
+WordPress EC2 Instance:
+Launch an EC2 instance for WordPress:
+select Ubuntu as the operating system.
+Configure security groups to allow inbound traffic on ports 22 (SSH), 80 (HTTP), and 443 (HTTPS). or allow all traffic 0.0.0.0
+
+MySQL EC2 Instance:
+Launch another EC2 instance for MySQL:
+Select Ubuntu as the operating system.
+Configure security groups to allow inbound traffic on ports 22 (SSH) and 3306 (MySQL) from the IP address of the WordPress EC2 instance. or allow all traffic 0.0.0.0
+
+Step 2: Install MySQL on MySQL EC2 Instance
+sudo apt update
+sudo apt install mysql-server -y
+
+Step 3: Install Apache, PHP, and WordPress on WordPress EC2 Instance
+sudo apt update
+sudo apt install apache2 php php-mysql -y
+sudo systemctl enable apache2
+sudo systemctl start apache2
+
+cd /tmp
+wget https://wordpress.org/latest.tar.gz
+sudo tar -xzvf latest.tar.gz -C /var/www/html/
+
+Configure WordPress
+sudo chown -R www-data:www-data /var/www/html/wordpress
+sudo chmod -R 755 /var/www/html/wordpress
+cp /var/www/html/wordpress/wp-config-sample.php /var/www/html/wordpress/wp-config.php
+sudo nano /var/www/html/wordpress/wp-config.php
+
+Complete WordPress Installation
+Navigate to your WordPress site in a web browser using the public IP address of the WordPress EC2 instance (e.g., http://wordpress-instance-public-ip).
+
+
+
+
+
+
+
