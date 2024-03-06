@@ -1,6 +1,7 @@
 **deploy a monolithic architecture with WordPress and MySQL on Ubuntu.**
 
-Step 1: Install MySQL Server
+Step 1: launch a ec2 instance with choose ubuntu ami 
+nstall MySQL Server
 Update the package index:
 sudo apt update
 Install MySQL Server
